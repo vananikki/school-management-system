@@ -6,7 +6,7 @@ A specialized relational database solution designed to streamline institutional 
 
 ### 🛠 Administrative Operations & RBAC
 *   **Role-Based Access Control (RBAC)**: Implements native MySQL roles (`admin_role`, `coordinator_role`, `teacher_role`) to strictly enforce data access policies.
-*   **Dynamic Student & Faculty Management**: Full CRUD capabilities for student profiles and faculty assignments, with functional access determined by the user's active role[cite: 1, 2].
+*   **Dynamic Student & Faculty Management**: Full CRUD capabilities for student profiles and faculty assignments, with functional access determined by the user's active role.
 *   **Secure Class Transition**: Automated mechanisms for student transfers via the `sp_TransferStudent` stored procedure, restricted to administrative roles to maintain institutional integrity.
 
 ### 📊 Performance Analytics
@@ -16,7 +16,7 @@ A specialized relational database solution designed to streamline institutional 
 
 ### 🎨 User Experience
 *   **Professional Dynamic Interface**: A minimalist "Portal" built with `Tkinter`, featuring NEU’s signature deep blue palette and an adaptive UI that "grays out" unauthorized functions based on the current user's role.
-*   **Secure Session Handling**: Includes an automated role activation sequence (`SET ROLE ALL`) upon login to ensure the security context is correctly applied[cite: 1, 2].
+*   **Secure Session Handling**: Includes an automated role activation sequence (`SET ROLE ALL`) upon login to ensure the security context is correctly applied.
 
 ## 🛡 Security Architecture
 The system employs a multi-layered security approach:
