@@ -1,4 +1,4 @@
-# 🎓 NEU Academic Management System - Staff Portal
+# 🎓 NEU Academic Management System - Portal
 
 A specialized relational database solution designed to streamline institutional data orchestration and administrative workflows. This system bridges the gap between raw academic data and actionable insights through a professional Python-based GUI and a robust MySQL backend.
 
@@ -15,7 +15,7 @@ A specialized relational database solution designed to streamline institutional 
 *   **Search Optimization**: Implements Depth-First Search (DFS) for detailed scorecard generation and Breadth-First Search (BFS) for structural audits.
 
 ### 🎨 User Experience
-*   **Professional Interface**: A minimalist "Staff Portal" built with `Tkinter`, featuring NEU’s signature deep blue palette and modern gray aesthetics.
+*   **Professional Interface**: A minimalist "Portal" built with `Tkinter`, featuring NEU’s signature deep blue palette and modern gray aesthetics.
 *   **Interactive Design**: Smooth hover animations and real-time input validation to prevent SQL errors and enhance usability.
 
 ## 🛠 Tech Stack
