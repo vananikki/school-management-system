@@ -1,7 +1,3 @@
-Dưới đây là bản **README.md** đã được nâng cấp để phản ánh đúng độ chuyên nghiệp của hệ thống, đặc biệt là nhấn mạnh vào phần phân quyền (RBAC) và bảo mật tầng cơ sở dữ liệu mà bạn vừa hoàn thiện.
-
----
-
 # 🎓 NEU Academic Management System - Secure Portal
 
 A specialized relational database solution designed to streamline institutional data orchestration and administrative workflows at the National Economics University. This system bridges the gap between raw academic data and actionable insights through a professional Python-based GUI and a robust, role-secured MySQL backend.
