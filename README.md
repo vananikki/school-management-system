@@ -1,36 +1,41 @@
-# 🎓 NEU Academic Management System - Portal
+Dưới đây là bản **README.md** đã được nâng cấp để phản ánh đúng độ chuyên nghiệp của hệ thống, đặc biệt là nhấn mạnh vào phần phân quyền (RBAC) và bảo mật tầng cơ sở dữ liệu mà bạn vừa hoàn thiện.
 
-A specialized relational database solution designed to streamline institutional data orchestration and administrative workflows. This system bridges the gap between raw academic data and actionable insights through a professional Python-based GUI and a robust MySQL backend.
+---
+
+# 🎓 NEU Academic Management System - Secure Portal
+
+A specialized relational database solution designed to streamline institutional data orchestration and administrative workflows at the National Economics University. This system bridges the gap between raw academic data and actionable insights through a professional Python-based GUI and a robust, role-secured MySQL backend.
 
 ## 🚀 Core Features
 
-### 🛠 Administrative Operations
-*   **Student & Faculty Management**: Full CRUD (Create, Read, Update, Delete) capabilities for student profiles and teacher assignments.
-*   **Class Transition Logic**: Automated mechanisms for student transfers and class reassignments while maintaining historical data integrity.
-*   **Curriculum Coordination**: Standardized subject creation and academic scheduling.
+### 🛠 Administrative Operations & RBAC
+*   **Role-Based Access Control (RBAC)**: Implements native MySQL roles (`admin_role`, `coordinator_role`, `teacher_role`) to strictly enforce data access policies.
+*   **Dynamic Student & Faculty Management**: Full CRUD capabilities for student profiles and faculty assignments, with functional access determined by the user's active role[cite: 1, 2].
+*   **Secure Class Transition**: Automated mechanisms for student transfers via the `sp_TransferStudent` stored procedure, restricted to administrative roles to maintain institutional integrity.
 
 ### 📊 Performance Analytics
-*   **Real-time Statistics**: Utilizes SQL Triggers (`trg_UpdateClassPerformance`) to auto-sync GPA averages and record counts in the `ClassStats` table upon grade entry.
-*   **Visual Insights**: Integrated data visualization for class performance trends and faculty workload distribution.
+*   **Real-time Statistics**: Utilizes SQL Triggers (`trg_UpdateClassPerformance`) to auto-sync GPA averages and record counts in the `ClassStats` table immediately upon grade entry.
+*   **Visual Insights**: Integrated data visualization for class performance trends and faculty workload distribution using Matplotlib.
 *   **Search Optimization**: Implements Depth-First Search (DFS) for detailed scorecard generation and Breadth-First Search (BFS) for structural audits.
 
 ### 🎨 User Experience
-*   **Professional Interface**: A minimalist "Portal" built with `Tkinter`, featuring NEU’s signature deep blue palette and modern gray aesthetics.
-*   **Interactive Design**: Smooth hover animations and real-time input validation to prevent SQL errors and enhance usability.
+*   **Professional Dynamic Interface**: A minimalist "Portal" built with `Tkinter`, featuring NEU’s signature deep blue palette and an adaptive UI that "grays out" unauthorized functions based on the current user's role.
+*   **Secure Session Handling**: Includes an automated role activation sequence (`SET ROLE ALL`) upon login to ensure the security context is correctly applied[cite: 1, 2].
+
+## 🛡 Security Architecture
+The system employs a multi-layered security approach:
+1.  **Database Layer**: Native MySQL roles define specific `GRANT` privileges for each user type.
+2.  **Logic Layer**: Python-level validation using `SELECT CURRENT_ROLE()` to verify credentials before executing sensitive queries.
+3.  **Presentation Layer**: Conditional UI rendering to prevent unauthorized interaction with restricted modules.
 
 ## 🛠 Tech Stack
 *   **Language**: Python 3.10+
-*   **Database**: MySQL (Optimized for 3rd Normal Form)
-*   **Libraries**: 
-    *   `mysql-connector-python` (Database connectivity)
-    *   `Tkinter` (GUI Framework)
-    *   `Pillow (PIL)` (Logo & Image processing)
-    *   `Matplotlib` (Analytics Charting)
-
-## 🏗 Database Architecture
-The system utilizes a relational schema focused on referential integrity. Key tables include:
-*   `Students`, `Teachers`, `Classes`, `Subjects`, `Grades`.
-*   `ClassStats`: An automated analytical table managed by backend triggers.
+*   **Database**: MySQL 8.0+ (Optimized for 3rd Normal Form)
+*   **Key Libraries**: 
+    *   `mysql-connector-python` (Secure DB connectivity).
+    *   `Tkinter` (Dynamic GUI Framework).
+    *   `Pillow (PIL)` (NEU Brand Identity processing).
+    *   `Matplotlib` (Analytics Charting).
 
 ## 🏁 Getting Started
 
@@ -38,9 +43,10 @@ The system utilizes a relational schema focused on referential integrity. Key ta
     ```bash
     git clone https://github.com/vananikki/school-management-system.git
     ```
-2.  **Configure Database**:
-    *   Execute the SQL scripts provided in `schema.sql` to initialize the MySQL database.
-    *   Update `db_config.py` with your local MySQL credentials.
+2.  **Configure Database & Roles**:
+    *   Execute `schema.sql` to initialize the database.
+    *   Run the Role Creation script to setup `admin_role`, `coordinator_role`, and `teacher_role`.
+    *   Ensure your user is granted a default role: `SET DEFAULT ROLE ALL TO 'your_user'@'localhost';`.
 3.  **Install Dependencies**:
     ```bash
     pip install mysql-connector-python pillow matplotlib
@@ -48,9 +54,9 @@ The system utilizes a relational schema focused on referential integrity. Key ta
 4.  **Launch the Portal**:
     
 ```bash
-    python gui_app_2.py
+    python gui_app.py
     ```
 
 ---
-*Developed as a Final Project for the School of Technology - National Economics University.*
+*Developed as a Final Project for the School of Technology - National Economics University (NEU).*
 ```
